@@ -1,0 +1,179 @@
+
+
+
+--dry-run=client
+
+
+Generate POD Manifest YAML file (-o yaml). Don’t create it(–dry-run)
+
+kubectl run nginx --image=nginx --dry-run=client -o yaml
+
+
+POD
+Create an NGINX Pod
+
+kubectl run nginx --image=nginx
+
+ 
+
+Generate POD Manifest YAML file (-o yaml). Don’t create it(–dry-run)
+
+kubectl run nginx --image=nginx --dry-run=client -o yaml
+
+ 
+
+Deployment
+Create a deployment
+
+kubectl create deployment --image=nginx nginx
+
+ 
+
+Generate Deployment YAML file (-o yaml). Don’t create it(–dry-run)
+
+kubectl create deployment --image=nginx nginx --dry-run -o yaml
+
+ 
+
+Generate Deployment with 4 Replicas
+
+kubectl create deployment nginx --image=nginx --replicas=4
+
+ 
+
+You can also scale a deployment using the kubectl scale command.
+
+kubectl scale deployment nginx --replicas=4
+
+ 
+
+Another way to do this is to save the YAML definition to a file and modify
+
+kubectl create deployment nginx --image=nginx--dry-run=client -o yaml > nginx-deployment.yaml
+
+ 
+
+You can then update the YAML file with the replicas or any other field before creating the deployment.
+
+ 
+
+Service
+Create a Service named redis-service of type ClusterIP to expose pod redis on port 6379
+
+kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
+
+(This will automatically use the pod’s labels as selectors)
+
+Or
+
+kubectl create service clusterip redis --tcp=6379:6379 --dry-run=client -o yaml (This will not use the pods labels as selectors, instead it will assume selectors as app=redis. You cannot pass in selectors as an option. So it does not work very well if your pod has a different label set. So generate the file and modify the selectors before creating the service)
+
+ 
+
+Create a Service named nginx of type NodePort to expose pod nginx’s port 80 on port 30080 on the nodes:
+
+kubectl expose pod nginx --port=80 --name nginx-service --type=NodePort --dry-run=client -o yaml
+
+(This will automatically use the pod’s labels as selectors, but you cannot specify the node port. You have to generate a definition file and then add the node port in manually before creating the service with the pod.)
+
+Or
+
+kubectl create service nodeport nginx --tcp=80:80 --node-port=30080 --dry-run=client -o yaml
+
+
+
+Create a service redis-service to expose the redis application within the cluster on port 6379
+
+kubectl expose pod redis --port=6379 --name redis-service
+
+
+
+Create a deployment named webapp using the image kodekloud/webapp-color with 3 replicas.
+
+kubectl create deployment  webapp --image=kodekloud/webapp-color --replicas=3
+
+
+
+Run the command: kubectl run httpd --image=httpd:alpine --port=80 --expose
+
+
+
+kubectl [command] [TYPE] [NAME] -o <output_format>
+
+Here are some of the commonly used formats:
+
+-o jsonOutput a JSON formatted API object.
+-o namePrint only the resource name and nothing else.
+-o wideOutput in the plain-text format with any additional information.
+-o yamlOutput a YAML formatted API object.
+Here are some useful examples:
+
+Output with JSON format:
+master $ kubectl create namespace test-123 --dry-run -o json
+{
+    "kind": "Namespace",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "test-123",
+        "creationTimestamp": null
+    },
+    "spec": {},
+    "status": {}
+}
+master $
+ 
+
+Output with YAML format:
+master $ kubectl create namespace test-123 --dry-run -o yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: test-123
+spec: {}
+status: {}
+ 
+
+Output with wide (additional details):
+Probably the most common format used to print additional details about the object:
+
+master $ kubectl get pods -o wide
+NAME      READY   STATUS    RESTARTS   AGE     IP          NODE     NOMINATED NODE   READINESS GATES
+busybox   1/1     Running   0          3m39s   10.36.0.2   node01   <none>           <none>
+ningx     1/1     Running   0          7m32s   10.44.0.1   node03   <none>           <none>
+redis     1/1     Running   0          3m59s   10.36.0.1   node01   <none>           <none>
+master $
+
+
+==========================================================================================================
+							Core
+==========================================================================================================
+
+
+
+
+
+Run the kubectl edit pod <pod name> command. This will open the pod specification in an editor (vi editor). 
+
+Then edit the required properties. When you try to save it, you will be denied. This is because you are attempting to edit a field on the pod that is not editable.
+
+
+ You can then delete the existing pod by running the command:
+
+kubectl delete pod webapp
+
+Then create a new pod with your changes using the temporary file:
+
+kubectl create -f /tmp/kubectl-edit-ccvrq.yaml
+
+2. The second option is to extract the pod definition in YAML format to a file using the command
+
+kubectl get pod webapp -o yaml > my-new-pod.yaml
+
+Then make the changes to the exported file using an editor (vi editor). Save the changes
+
+
+kubectl edit deployment my-deployment
+
+
+
