@@ -5,6 +5,7 @@
 Ce document vise à établir un ensemble de recommandations pour le déploiement, la configuration et la gestion d'un cluster Kubernetes.
 
 ## Sommaire
+
 1. **Planifier et concevoir**
 2. **Installer et configurer**
 3. **Sécuriser**
@@ -46,4 +47,3 @@ Ce document vise à établir un ensemble de recommandations pour le déploiement
 - [Documentation officielle de Kubernetes](https://kubernetes.io/docs/)
 - [Kubernetes Patterns](https://www.redhat.com/en/resources/kubernetes-patterns-ebook)
 - [kube-score](https://kube-score.com/)
-
