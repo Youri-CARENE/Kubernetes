@@ -12,8 +12,8 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    command: ["/bin/sh", "-c"] # Commande à exécuter
-    args: ["sleep 3600"] # Arguments passés à la commande
+    command: ["/bin/sh", "-c"]
+    args: ["sleep 3600"]
     ports:
     - containerPort: 80
     resources:
@@ -47,6 +47,17 @@ spec:
       timeoutSeconds: 2
       periodSeconds: 5
       failureThreshold: 10
+    volumeMounts:
+    - name: temp-storage
+      mountPath: /tmp
+    - name: secret-volume
+      mountPath: /etc/secret
+  volumes:
+  - name: temp-storage
+    emptyDir: {} # Crée un volume temporaire qui est supprimé lorsque le Pod est supprimé
+  - name: secret-volume
+    secret:
+      secretName: my-secret # Le nom du Secret Kubernetes que vous devez avoir préalablement créé
   serviceAccountName: my-service-account
   dnsPolicy: ClusterFirst
   restartPolicy: Never
