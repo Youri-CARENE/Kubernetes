@@ -17,3 +17,6 @@ kubectl get pod -o wide
 # Show all labels of the nodes
 
 kubectl get nodes --show-labels
+
+# get all the pods
+kubectl get pod
