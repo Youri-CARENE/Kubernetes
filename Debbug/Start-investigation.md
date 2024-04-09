@@ -20,3 +20,7 @@ kubectl get nodes --show-labels
 
 # get all the pods
 kubectl get pod
+
+
+# See all the service accounts of the cluster in all namespaces
+kubectl get sa --all-namespaces
