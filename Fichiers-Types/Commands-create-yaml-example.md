@@ -23,3 +23,12 @@ kubectl create cm configmap3 --from-env-file=config.env
 
 # General Create a configMap 'type' with values 'var8=val8', 'var9=val9
 kubectl create configmap type-name --from-literal=var8=val8 --from-literal=var9=val9
+
+
+
+# Create a secret called mysecret with the values password=mypass
+kubectl create secret generic mysecret --from-literal=password=mypass
+
+
+# Create a secret called mysecret2 that gets key/value from a file
+kubectl create secret generic mysecret2 --from-file=username
