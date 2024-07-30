@@ -76,7 +76,7 @@ spec:
       maxUnavailable: 1
 ```
 
-Cette configuration indique à Kubernetes de maintenir trois répliques du pod \`web-app\` utilisant l'image \`nginx\`, et d'utiliser une stratégie de mise à jour progressive.
+Cette configuration indique à Kubernetes de maintenir trois répliques du pod \" web-app\" utilisant l'image \"nginx\", et d'utiliser une stratégie de mise à jour progressive.
 
 ---
 
