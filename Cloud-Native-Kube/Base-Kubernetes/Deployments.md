@@ -84,4 +84,4 @@ Cette configuration indique à Kubernetes de maintenir trois répliques du pod \
 
 - **Deployments** sont essentiels pour gérer le déploiement et la mise à jour des applications conteneurisées dans Kubernetes.
 - Ils permettent des déploiements cohérents, la gestion des versions, la haute disponibilité et la scalabilité des applications.
-- En comprenant les Deployments, vous serez mieux équipé pour déployer et gérer des applications de manière efficace dans Kubernetes, ce qui est crucial pour réussir votre certification DevOps.
+
