@@ -49,7 +49,7 @@ Un **Deployment** est une ressource de Kubernetes qui gère le déploiement et l
 
 Imaginons que vous souhaitiez déployer une application web en utilisant un Deployment. Voici un exemple de configuration YAML pour un Deployment :
 
-\`\`\`yaml
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -74,7 +74,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-\`\`\`
+```
 
 Cette configuration indique à Kubernetes de maintenir trois répliques du pod \`web-app\` utilisant l'image \`nginx\`, et d'utiliser une stratégie de mise à jour progressive.
 
