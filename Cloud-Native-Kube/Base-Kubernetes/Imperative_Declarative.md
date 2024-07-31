@@ -62,13 +62,13 @@ L'**approche déclarative** consiste à décrire l'état souhaité du système d
 
 1. **Impérative** :
    - Créer un déploiement directement :
-     \`\`\`
+     ```
      kubectl create deployment nginx --image=nginx
-     \`\`\`
+     ```
 
 2. **Déclarative** :
    - Créer un fichier de déploiement `deployment.yaml` :
-     \`\`\`yaml
+     ```yaml
      apiVersion: apps/v1
      kind: Deployment
      metadata:
@@ -88,11 +88,11 @@ L'**approche déclarative** consiste à décrire l'état souhaité du système d
              image: nginx
              ports:
              - containerPort: 80
-     \`\`\`
+     ```
    - Appliquer le fichier de configuration :
-     \`\`\`
+     ```
      kubectl apply -f deployment.yaml
-     \`\`\`
+     ```
 
 ---
 
