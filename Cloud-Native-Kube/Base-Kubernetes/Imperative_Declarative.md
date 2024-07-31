@@ -101,4 +101,4 @@ L'**approche déclarative** consiste à décrire l'état souhaité du système d
 - **Impérative** : Offre un contrôle direct et immédiat, idéal pour les tâches rapides et ad hoc.
 - **Déclarative** : Facilite la gestion des configurations complexes, idéal pour la maintenance et la versionning des configurations.
 
-Comprendre les deux approches vous permet de choisir la méthode la plus appropriée pour chaque situation dans Kubernetes, ce qui est crucial pour réussir votre certification DevOps.
+
