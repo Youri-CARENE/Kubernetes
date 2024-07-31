@@ -7,7 +7,7 @@
 **Manual Scheduling** est le processus par lequel un administrateur Kubernetes spécifie manuellement sur quel nœud un pod doit être exécuté. Cela se fait en définissant explicitement le champ `nodeName` dans la spécification du pod.
 
 **Exemple** :
-\`\`\`yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -17,7 +17,7 @@ spec:
   - name: nginx
     image: nginx
   nodeName: node01
-\`\`\`
+```
 
 ---
 
@@ -28,20 +28,20 @@ spec:
 **Selectors** permettent de sélectionner des objets en fonction de leurs labels.
 
 **Exemple de Label** :
-\`\`\`yaml
+```yaml
 metadata:
   labels:
     app: frontend
     env: production
-\`\`\`
+```
 
 **Exemple de Selectors** :
-\`\`\`yaml
+```yaml
 selector:
   matchLabels:
     app: frontend
     env: production
-\`\`\`
+```
 
 ---
 
@@ -52,18 +52,18 @@ selector:
 **Tolerations** permettent aux pods d'être planifiés sur des nœuds avec des taints correspondants.
 
 **Exemple de Taint** :
-\`\`\`
+```
 kubectl taint nodes node1 key=value:NoSchedule
-\`\`\`
+```
 
 **Exemple de Toleration** :
-\`\`\`yaml
+```yaml
 tolerations:
 - key: "key"
   operator: "Equal"
   value: "value"
   effect: "NoSchedule"
-\`\`\`
+```
 
 ---
 
@@ -72,11 +72,11 @@ tolerations:
 **Node Selectors** sont des sélecteurs simples pour contraindre les pods à s'exécuter sur des nœuds spécifiques en utilisant des labels.
 
 **Exemple** :
-\`\`\`yaml
+```yaml
 spec:
   nodeSelector:
     disktype: ssd
-\`\`\`
+```
 
 ---
 
@@ -85,7 +85,7 @@ spec:
 **Node Affinity** est une version avancée de `nodeSelector` qui permet des règles plus expressives pour la planification des pods.
 
 **Exemple** :
-\`\`\`yaml
+```yaml
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
@@ -95,7 +95,7 @@ affinity:
           operator: In
           values:
           - ssd
-\`\`\`
+```
 
 ---
 
@@ -111,7 +111,7 @@ affinity:
 **Resource Limits** définissent les ressources (CPU, mémoire) qu'un conteneur peut utiliser.
 
 **Exemple** :
-\`\`\`yaml
+```yaml
 resources:
   limits:
     memory: "128Mi"
@@ -119,7 +119,7 @@ resources:
   requests:
     memory: "64Mi"
     cpu: "250m"
-\`\`\`
+```
 
 ---
 
@@ -128,7 +128,7 @@ resources:
 **DaemonSets** assurent que tous (ou certains) nœuds exécutent une copie d'un pod.
 
 **Exemple** :
-\`\`\`yaml
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -145,7 +145,7 @@ spec:
       containers:
       - name: node-exporter
         image: prom/node-exporter
-\`\`\`
+```
 
 ---
 
@@ -155,7 +155,7 @@ spec:
 
 **Exemple** :
 Définir un pod statique dans `/etc/kubernetes/manifests/` :
-\`\`\`yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -164,7 +164,7 @@ spec:
   containers:
   - name: nginx
     image: nginx
-\`\`\`
+```
 
 ---
 
@@ -174,7 +174,7 @@ spec:
 
 **Exemple** :
 Déployer un planificateur personnalisé :
-\`\`\`yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -183,7 +183,7 @@ spec:
   containers:
   - name: scheduler
     image: my-custom-scheduler
-\`\`\`
+```
 
 ---
 
@@ -193,7 +193,7 @@ spec:
 
 **Exemple** :
 Configurer un profil de planification :
-\`\`\`yaml
+```yaml
 apiVersion: kubescheduler.config.k8s.io/v1beta1
 kind: KubeSchedulerConfiguration
 profiles:
@@ -202,4 +202,4 @@ profiles:
     queueSort:
       enabled:
         - name: PrioritySort
-\`\`\`
+```
