@@ -97,7 +97,7 @@ Les Worker Nodes exécutent les applications conteneurisées. Chaque nœud dispo
 - **Déploiement d'Application** : Les utilisateurs définissent des applications dans des fichiers de configuration YAML. Ces fichiers sont envoyés au API Server.
 - **Planification et Allocation** : Le Scheduler assigne des pods aux nœuds disponibles.
 - **Exécution** : Le Kubelet sur chaque nœud exécute les conteneurs définis dans les pods.
-- **Réseautage et Services** : Kube-proxy gère la communication réseau entre les pods et le monde extérieur.
+- **Réseau et Services** : Kube-proxy gère la communication réseau entre les pods et le monde extérieur.
 
 ---
 
