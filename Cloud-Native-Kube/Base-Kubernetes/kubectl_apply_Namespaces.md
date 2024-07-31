@@ -1,4 +1,4 @@
-### Synthèse et Explication Concise sur `kubectl apply` et les Namespaces dans Kubernetes
+### Synthèse  sur `kubectl apply` et les Namespaces dans Kubernetes
 
 ---
 
@@ -30,7 +30,7 @@ La commande **`kubectl apply`** est utilisée pour appliquer des configurations 
 
 1. **Créer un Fichier de Configuration** :
    - Exemple de fichier `deployment.yaml` :
-     \`\`\`yaml
+     ```yaml
      apiVersion: apps/v1
      kind: Deployment
      metadata:
@@ -50,13 +50,13 @@ La commande **`kubectl apply`** est utilisée pour appliquer des configurations 
              image: nginx
              ports:
              - containerPort: 80
-     \`\`\`
+     ```
 
 2. **Appliquer la Configuration** :
    - Utiliser la commande `kubectl apply` :
-     \`\`\`
+     ```
      kubectl apply -f deployment.yaml
-     \`\`\`
+     ```
 
 ---
 
@@ -86,13 +86,13 @@ Un **namespace** est une méthode de partitionnement logique des ressources dans
 
 1. **Créer un Namespace** :
    - Utiliser la commande `kubectl` pour créer un namespace :
-     \`\`\`
+     ```
      kubectl create namespace dev-environment
-     \`\`\`
+     ```
 
 2. **Appliquer une Configuration dans un Namespace Spécifique** :
    - Ajouter le namespace dans le fichier de configuration ou utiliser l'option `-n` :
-     \`\`\`yaml
+     ```yaml
      apiVersion: apps/v1
      kind: Deployment
      metadata:
@@ -113,11 +113,11 @@ Un **namespace** est une méthode de partitionnement logique des ressources dans
              image: nginx
              ports:
              - containerPort: 80
-     \`\`\`
+     ```
    - Ou appliquer avec l'option `-n` :
-     \`\`\`
+     ```
      kubectl apply -f deployment.yaml -n dev-environment
-     \`\`\`
+     ```
 
 ---
 
