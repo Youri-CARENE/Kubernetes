@@ -1,6 +1,8 @@
-# Explication Simple et Efficace sur le Runtime CRI et Docker vs Containerd
+# Explication le Runtime CRI et Docker vs Containerd
 
 ## 1. Runtime CRI (Container Runtime Interface)
+
+ **Definition**: Un runtime est un environnement d'exécution qui fournit les ressources et les services nécessaires pour exécuter un programme informatique
 
 Container Runtime Interface (CRI) est une API utilisée par Kubernetes pour interagir avec les runtimes de conteneurs. Elle définit une interface standardisée que les runtimes de conteneurs doivent implémenter pour fonctionner avec Kubernetes. Cela permet à Kubernetes d'être flexible et de prendre en charge différents runtimes de conteneurs de manière interchangeable.
 
@@ -54,9 +56,9 @@ En fonction de vos besoins, vous pouvez choisir Docker pour sa simplicité et se
 
 ---
 
-## Qu'est-ce qu'un Runtime de Conteneur ?
+## Runtime de Conteneur ?
 
-Un **runtime de conteneur** est un logiciel qui gère le cycle de vie des conteneurs d'application. Il s'occupe de la création, de l'exécution, de l'arrêt et de la suppression des conteneurs. Les conteneurs sont des unités légères et portables qui contiennent tout ce dont une application a besoin pour fonctionner : code, runtime, bibliothèques, et paramètres système.
+
 
 ### Principales Fonctions d'un Runtime de Conteneur
 
@@ -105,4 +107,4 @@ Un **runtime de conteneur** est un logiciel qui gère le cycle de vie des conten
 
 ### Conclusion
 
-Un runtime de conteneur est un composant essentiel dans l'écosystème des conteneurs, permettant de créer, exécuter, isoler et gérer les conteneurs de manière efficace. Des outils comme Docker Engine et Containerd jouent un rôle crucial dans le fonctionnement des environnements de conteneurs modernes, assurant la portabilité, l'efficacité et l'isolement des applications.
+Un runtime de conteneur est un composant essentiel dans l'écosystème des conteneurs, permettant de créer, exécuter, isoler et gérer les conteneurs de manière efficace. Des outils comme Docker Engine et Containerd jouent un rôle crucial dans le fonctionnement des environnements de conteneurs modernes, assurant la portabilité, l'efficacité et l'isolement des applications
