@@ -92,7 +92,7 @@ Les Worker Nodes exécutent les applications conteneurisées. Chaque nœud dispo
 
 ---
 
-## . Flux de Travail Général
+## . General Workflow
 
 - **Déploiement d'Application** : Les utilisateurs définissent des applications dans des fichiers de configuration YAML. Ces fichiers sont envoyés au API Server.
 - **Planification et Allocation** : Le Scheduler assigne des pods aux nœuds disponibles.
